@@ -68,6 +68,7 @@
 - [Testing EIP-712 Signatures](./tutorials/testing-eip712.md)
 - [Solidity Scripting](./tutorials/solidity-scripting.md)
 - [Deterministic deployment using CREATE2](./tutorials/create2-tutorial.md)
+- [Cross-chain deterministic deployment using CREATEX](./tutorials/create3-tutorial.md)
 - [Forking Mainnet with Cast and Anvil](./tutorials/forking-mainnet-with-cast-anvil.md)
 - [Learning Foundry Videos](./tutorials/learn-foundry.md)
 <!-- - [Incremental Adoption]() !-->
