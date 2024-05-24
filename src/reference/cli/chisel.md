@@ -22,9 +22,16 @@ Options:
 
 REPL options:
       --prelude <PRELUDE>
-          Path to a directory containing Solidity files to import, or path to a single Solidity file.
+          Path to a directory containing Solidity files to import, or path to a single Solidity
+          file.
           
-          These files will be evaluated before the top-level of the REPL, therefore functioning as a prelude
+          These files will be evaluated before the top-level of the REPL, therefore functioning as a
+          prelude
+
+      --no-vm
+          Disable the default `Vm` import.
+          
+          The import is disabled by default if the Solc version is less than 0.6.2.
 
 Cache options:
       --force
@@ -63,8 +70,16 @@ Compiler options:
       --via-ir
           Use the Yul intermediate representation compilation pipeline
 
+      --no-metadata
+          Do not append any metadata to the bytecode.
+          
+          This is equivalent to setting `bytecode_hash` to `none` and `cbor_metadata` to `false`.
+
       --silent
           Don't print anything on startup
+
+      --ast
+          Includes the AST as JSON in the compiler output
 
       --evm-version <VERSION>
           The target EVM version
@@ -80,7 +95,8 @@ Compiler options:
           
           Example keys: evm.assembly, ewasm, ir, irOptimized, metadata
           
-          For a full description, see https://docs.soliditylang.org/en/v0.8.13/using-the-compiler.html#input-description
+          For a full description, see
+          https://docs.soliditylang.org/en/v0.8.13/using-the-compiler.html#input-description
 
       --extra-output-files <SELECTOR>...
           Extra output to write to separate files.
@@ -94,7 +110,8 @@ Project options:
       --revert-strings <REVERT>
           Revert string configuration.
           
-          Possible values are "default", "strip" (remove), "debug" (Solidity-generated revert strings) and "verboseDebug"
+          Possible values are "default", "strip" (remove), "debug" (Solidity-generated revert
+          strings) and "verboseDebug"
 
       --build-info
           Generate build info files
@@ -173,6 +190,9 @@ EVM options:
       --ffi
           Enable the FFI cheatcode
 
+      --always-use-create-2-factory
+          Use the create 2 factory in all cases including tests and non-broadcasting scripts
+
   -v, --verbosity...
           Verbosity of the EVM.
           
@@ -190,12 +210,14 @@ Fork config:
           
           default value: 330
           
-          See also --fork-url and https://docs.alchemy.com/reference/compute-units#what-are-cups-compute-units-per-second
+          See also --fork-url and
+          https://docs.alchemy.com/reference/compute-units#what-are-cups-compute-units-per-second
 
       --no-rpc-rate-limit
           Disables rate limiting for this node's provider.
           
-          See also --fork-url and https://docs.alchemy.com/reference/compute-units#what-are-cups-compute-units-per-second
+          See also --fork-url and
+          https://docs.alchemy.com/reference/compute-units#what-are-cups-compute-units-per-second
           
           [aliases: no-rate-limit]
 
@@ -204,7 +226,8 @@ Executor environment config:
           The block gas limit
 
       --code-size-limit <CODE_SIZE>
-          EIP-170: Contract code size limit in bytes. Useful to increase this because of tests. By default, it is 0x6000 (~25kb)
+          EIP-170: Contract code size limit in bytes. Useful to increase this because of tests. By
+          default, it is 0x6000 (~25kb)
 
       --chain <CHAIN>
           The chain name or EIP-155 chain ID
@@ -241,7 +264,18 @@ Executor environment config:
           The block gas limit
 
       --memory-limit <MEMORY_LIMIT>
-          The memory limit per EVM execution in bytes. If this limit is exceeded, a `MemoryLimitOOG` result is thrown.
+          The memory limit per EVM execution in bytes. If this limit is exceeded, a `MemoryLimitOOG`
+          result is thrown.
           
           The default is 128MiB.
+
+      --disable-block-gas-limit
+          Whether to disable the block gas limit checks
+          
+          [aliases: no-gas-limit]
+
+      --isolate
+          Whether to enable isolation of calls. In isolation mode all top-level calls are executed
+          as a separate transaction in a separate EVM context, enabling more precise gas accounting
+          and transaction state changes
 ```

@@ -106,6 +106,21 @@ If enabled, Foundry will not attempt to download any missing solc versions.
 
 If both `offline` and `auto-detect-solc` are set to `true`, the required version(s) of solc will be auto detected but any missing versions will _not_ be installed.
 
+##### `ignored_warnings_from`
+
+- Type: array of strings (file paths)
+- Default: none
+- Environment: `FOUNDRY_IGNORED_WARNINGS_FROM` OR `DAPP_IGNORED_WARNINGS_FROM`
+
+An array of file paths from which warnings should be ignored during the compulation process. This is useful when you have a specific
+directories of files that produce known warning and you wish to suppress these warnings without affecting others.
+
+Each entry in the array should be a path to a directory or a specific file. For Example:
+
+`ignored_warnings_from = ["path/to/warnings/file1.sol", "path/to/warnings/file2.sol"]`
+
+This configuration will cause the compiler to ignore any warnings that originate from the specified paths.
+
 ##### `ignored_error_codes`
 
 - Type: array of integers/strings
@@ -141,7 +156,7 @@ If enabled, Foundry will treat Solidity compiler warnings as errors, stopping ar
 ##### `evm_version`
 
 - Type: string
-- Default: london
+- Default: paris
 - Environment: `FOUNDRY_EVM_VERSION` or `DAPP_EVM_VERSION`
 
 The EVM version to use during tests. The value **must** be an EVM hardfork name, such as `london`, `byzantium`, etc.
@@ -246,17 +261,24 @@ The amount of optimizer runs to perform.
 
 If set to true, changes compilation pipeline to go through the new IR optimizer.
 
+##### `use_literal_content`
+
+- Type: boolean
+- Default: false
+
+If set to true, changes compilation to only use literal content and not URLs.
+
 ##### `[optimizer_details]`
 
 The optimizer details section is used to tweak how the Solidity optimizer behaves. There are several configurable values in this section (each of them are booleans):
 
 - `peephole`
 - `inliner`
-- `jumpdest_remover`
-- `order_literals`
+- `jumpdestRemover`
+- `orderLiterals`
 - `deduplicate`
 - `cse`
-- `constant_optimizer`
+- `constantOptimizer`
 - `yul`
 
 Refer to the Solidity [compiler input description](https://docs.soliditylang.org/en/latest/using-the-compiler.html#compiler-input-and-output-json-description) for the default values.

@@ -144,10 +144,11 @@ contract NFT is ERC721, Ownable {
         if (msg.value != MINT_PRICE) {
             revert MintPriceNotPaid();
         }
-        uint256 newTokenId = ++currentTokenId;
+        uint256 newTokenId = currentTokenId + 1;
         if (newTokenId > TOTAL_SUPPLY) {
             revert MaxSupply();
         }
+        currentTokenId = newTokenId;
         _safeMint(recipient, newTokenId);
         return newTokenId;
     }
@@ -169,18 +170,22 @@ contract NFT is ERC721, Ownable {
     }
 
     function withdrawPayments(address payable payee) external onlyOwner {
-        uint256 balance = address(this).balance;
-        (bool transferTx, ) = payee.call{value: balance}("");
-        if (!transferTx) {
+        if (address(this).balance == 0) {
             revert WithdrawTransfer();
         }
+        
+        payable(payee).transfer(address(this).balance);
+    }
+
+    function _checkOwner() internal view override {
+        require(msg.sender == owner(), "Ownable: caller is not the owner");
     }
 }
 ```
 
 Among other things, we have added metadata that can be queried from any front-end application like OpenSea, by calling the `tokenURI` method on our NFT contract.
 
-> **Note**: If you want to provide a real URL to the constructor at deployment, and host the metadata of this NFT contract please follow the steps outlined [here](https://docs.opensea.io/docs/part-3-adding-metadata-and-payments-to-your-contract#intro-to-nft-metadata).
+> **Note**: If you want to provide a real URL to the constructor at deployment, and host the metadata of this NFT contract please follow the steps outlined [here](https://docs.opensea.io/docs/part-3-upload-metadata).
 
 Let's test some of this added functionality to make sure it works as intended. Foundry offers an extremely fast EVM native testing framework through Forge.
 
@@ -234,7 +239,7 @@ contract NFTTest is Test {
         uint256 slotOfNewOwner = stdstore
             .target(address(nft))
             .sig(nft.ownerOf.selector)
-            .with_key(1)
+            .with_key(address(1))
             .find();
 
         uint160 ownerOfTokenIdOne = uint160(

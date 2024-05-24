@@ -13,20 +13,81 @@ Options:
           This flag can be used multiple times.
           
           [default: summary]
-          [possible values: summary, lcov, debug]
+          [possible values: summary, lcov, debug, bytecode]
 
       --ir-minimum
           Enable viaIR with minimum optimization
           
-          This can fix most of the "stack too deep" errors while resulting a relatively accurate source map.
+          This can fix most of the "stack too deep" errors while resulting a relatively accurate
+          source map.
 
   -r, --report-file <PATH>
           The path to output the report.
           
           If not specified, the report will be stored in the root of the project.
 
+      --include-libs
+          Whether to include libraries in the coverage report
+
   -h, --help
           Print help (see a summary with '-h')
+
+Test options:
+      --debug <TEST_FUNCTION>
+          Run a test in the debugger.
+          
+          The argument passed to this flag is the name of the test function you want to run, and it
+          works the same as --match-test.
+          
+          If more than one test matches your specified criteria, you must add additional filters
+          until only one test is found (see --match-contract and --match-path).
+          
+          The matching test will be opened in the debugger regardless of the outcome of the test.
+          
+          If the matching test is a fuzz test, then it will open the debugger on the first failure
+          case. If the fuzz test does not fail, it will open the debugger on the last fuzz case.
+          
+          For more fine-grained control of which fuzz case is run, see forge run.
+
+      --gas-report
+          Print a gas report
+          
+          [env: FORGE_GAS_REPORT=]
+
+      --allow-failure
+          Exit with code 0 even if a test fails
+          
+          [env: FORGE_ALLOW_FAILURE=]
+
+      --fail-fast
+          Stop running tests after the first failure
+
+      --etherscan-api-key <KEY>
+          The Etherscan (or equivalent) API key
+          
+          [env: ETHERSCAN_API_KEY=]
+
+      --fuzz-seed <FUZZ_SEED>
+          Set seed used to generate randomness during your fuzz runs
+
+      --fuzz-runs <RUNS>
+          [env: FOUNDRY_FUZZ_RUNS=]
+
+      --fuzz-input-file <FUZZ_INPUT_FILE>
+          File to rerun fuzz failures from
+
+Display options:
+  -j, --json
+          Output test results in JSON format
+
+  -l, --list
+          List tests instead of running them
+
+      --summary
+          Print test summary table
+
+      --detailed
+          Print detailed test summary table
 
 Test filtering:
       --match-test <REGEX>
@@ -100,6 +161,9 @@ EVM options:
       --ffi
           Enable the FFI cheatcode
 
+      --always-use-create-2-factory
+          Use the create 2 factory in all cases including tests and non-broadcasting scripts
+
   -v, --verbosity...
           Verbosity of the EVM.
           
@@ -117,12 +181,14 @@ Fork config:
           
           default value: 330
           
-          See also --fork-url and https://docs.alchemy.com/reference/compute-units#what-are-cups-compute-units-per-second
+          See also --fork-url and
+          https://docs.alchemy.com/reference/compute-units#what-are-cups-compute-units-per-second
 
       --no-rpc-rate-limit
           Disables rate limiting for this node's provider.
           
-          See also --fork-url and https://docs.alchemy.com/reference/compute-units#what-are-cups-compute-units-per-second
+          See also --fork-url and
+          https://docs.alchemy.com/reference/compute-units#what-are-cups-compute-units-per-second
           
           [aliases: no-rate-limit]
 
@@ -131,7 +197,8 @@ Executor environment config:
           The block gas limit
 
       --code-size-limit <CODE_SIZE>
-          EIP-170: Contract code size limit in bytes. Useful to increase this because of tests. By default, it is 0x6000 (~25kb)
+          EIP-170: Contract code size limit in bytes. Useful to increase this because of tests. By
+          default, it is 0x6000 (~25kb)
 
       --chain <CHAIN>
           The chain name or EIP-155 chain ID
@@ -168,9 +235,20 @@ Executor environment config:
           The block gas limit
 
       --memory-limit <MEMORY_LIMIT>
-          The memory limit per EVM execution in bytes. If this limit is exceeded, a `MemoryLimitOOG` result is thrown.
+          The memory limit per EVM execution in bytes. If this limit is exceeded, a `MemoryLimitOOG`
+          result is thrown.
           
           The default is 128MiB.
+
+      --disable-block-gas-limit
+          Whether to disable the block gas limit checks
+          
+          [aliases: no-gas-limit]
+
+      --isolate
+          Whether to enable isolation of calls. In isolation mode all top-level calls are executed
+          as a separate transaction in a separate EVM context, enabling more precise gas accounting
+          and transaction state changes
 
 Cache options:
       --force
@@ -209,8 +287,16 @@ Compiler options:
       --via-ir
           Use the Yul intermediate representation compilation pipeline
 
+      --no-metadata
+          Do not append any metadata to the bytecode.
+          
+          This is equivalent to setting `bytecode_hash` to `none` and `cbor_metadata` to `false`.
+
       --silent
           Don't print anything on startup
+
+      --ast
+          Includes the AST as JSON in the compiler output
 
       --evm-version <VERSION>
           The target EVM version
@@ -226,7 +312,8 @@ Compiler options:
           
           Example keys: evm.assembly, ewasm, ir, irOptimized, metadata
           
-          For a full description, see https://docs.soliditylang.org/en/v0.8.13/using-the-compiler.html#input-description
+          For a full description, see
+          https://docs.soliditylang.org/en/v0.8.13/using-the-compiler.html#input-description
 
       --extra-output-files <SELECTOR>...
           Extra output to write to separate files.
@@ -240,7 +327,8 @@ Project options:
       --revert-strings <REVERT>
           Revert string configuration.
           
-          Possible values are "default", "strip" (remove), "debug" (Solidity-generated revert strings) and "verboseDebug"
+          Possible values are "default", "strip" (remove), "debug" (Solidity-generated revert
+          strings) and "verboseDebug"
 
       --build-info
           Generate build info files
@@ -277,4 +365,31 @@ Project options:
 
       --config-path <FILE>
           Path to the config file
+
+Watch options:
+  -w, --watch [<PATH>...]
+          Watch the given files or directories for changes.
+          
+          If no paths are provided, the source and test directories of the project are watched.
+
+      --no-restart
+          Do not restart the command while it's still running
+
+      --run-all
+          Explicitly re-run all tests when a change is made.
+          
+          By default, only the tests of the last modified test file are executed.
+
+      --watch-delay <DELAY>
+          File update debounce delay.
+          
+          During the delay, incoming change events are accumulated and only once the delay has
+          passed, is an action taken. Note that this does not mean a command will be started: if
+          --no-restart is given and a command is already running, the outcome of the action will be
+          to do nothing.
+          
+          Defaults to 50ms. Parses as decimal seconds by default, but using an integer with the `ms`
+          suffix may be more convenient.
+          
+          When using --poll mode, you'll want a larger duration, or risk overloading disk I/O.
 ```

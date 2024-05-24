@@ -1,6 +1,6 @@
 ## 📖 Foundry Book
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-103-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-109-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 A book on all things Foundry. [Read now](https://book.getfoundry.sh).
@@ -10,6 +10,8 @@ A book on all things Foundry. [Read now](https://book.getfoundry.sh).
 Check our [contributing guidelines](./CONTRIBUTING.md). Feel free to contribute wording, sentences, chapters, and guides!
 
 The book is build with [mdbook](https://github.com/rust-lang/mdBook), which you can get by running `cargo install mdbook`.
+
+The book also requires [`mdbook-external-links`](https://github.com/jonahgoldwastaken/mdbook-external-links): `cargo install mdbook-external-links`.
 
 To see the book change live run:
 
@@ -168,6 +170,14 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://il.linkedin.com/in/yotamb"><img src="https://avatars.githubusercontent.com/u/506487?v=4?s=100" width="100px;" alt="Yotam Bar-On"/><br /><sub><b>Yotam Bar-On</b></sub></a><br /><a href="https://github.com/foundry-rs/book/commits?author=Tudmotu" title="Documentation">📖</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/RedaOps"><img src="https://avatars.githubusercontent.com/u/32748771?v=4?s=100" width="100px;" alt="Tudor"/><br /><sub><b>Tudor</b></sub></a><br /><a href="https://github.com/foundry-rs/book/commits?author=RedaOps" title="Documentation">📖</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/vreff"><img src="https://avatars.githubusercontent.com/u/104409744?v=4?s=100" width="100px;" alt="Chris Cushman"/><br /><sub><b>Chris Cushman</b></sub></a><br /><a href="https://github.com/foundry-rs/book/commits?author=vreff" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://ernestor.xyz/"><img src="https://avatars.githubusercontent.com/u/78889960?v=4?s=100" width="100px;" alt="ernestor.eth"/><br /><sub><b>ernestor.eth</b></sub></a><br /><a href="https://github.com/foundry-rs/book/commits?author=0xernesto" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/roudra323"><img src="https://avatars.githubusercontent.com/u/58447036?v=4?s=100" width="100px;" alt="Asir Shahriar Roudra"/><br /><sub><b>Asir Shahriar Roudra</b></sub></a><br /><a href="https://github.com/foundry-rs/book/commits?author=roudra323" title="Documentation">📖</a></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/stitetsati"><img src="https://avatars.githubusercontent.com/u/44837996?v=4?s=100" width="100px;" alt="stitetsati"/><br /><sub><b>stitetsati</b></sub></a><br /><a href="https://github.com/foundry-rs/book/commits?author=stitetsati" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://troublor.xyz"><img src="https://avatars.githubusercontent.com/u/14846504?v=4?s=100" width="100px;" alt="William Cheung"/><br /><sub><b>William Cheung</b></sub></a><br /><a href="https://github.com/foundry-rs/book/commits?author=Troublor" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://zzhang.xyz"><img src="https://avatars.githubusercontent.com/u/14835483?v=4?s=100" width="100px;" alt="Zhuo Zhang"/><br /><sub><b>Zhuo Zhang</b></sub></a><br /><a href="https://github.com/foundry-rs/book/commits?author=ZhangZhuoSJTU" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/totomanov"><img src="https://avatars.githubusercontent.com/u/63903313?v=4?s=100" width="100px;" alt="Anton Totomanov"/><br /><sub><b>Anton Totomanov</b></sub></a><br /><a href="https://github.com/foundry-rs/book/commits?author=totomanov" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>

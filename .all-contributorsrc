@@ -945,6 +945,60 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "0xernesto",
+      "name": "ernestor.eth",
+      "avatar_url": "https://avatars.githubusercontent.com/u/78889960?v=4",
+      "profile": "https://ernestor.xyz/",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "roudra323",
+      "name": "Asir Shahriar Roudra",
+      "avatar_url": "https://avatars.githubusercontent.com/u/58447036?v=4",
+      "profile": "https://github.com/roudra323",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "stitetsati",
+      "name": "stitetsati",
+      "avatar_url": "https://avatars.githubusercontent.com/u/44837996?v=4",
+      "profile": "https://github.com/stitetsati",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "Troublor",
+      "name": "William Cheung",
+      "avatar_url": "https://avatars.githubusercontent.com/u/14846504?v=4",
+      "profile": "https://troublor.xyz",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "ZhangZhuoSJTU",
+      "name": "Zhuo Zhang",
+      "avatar_url": "https://avatars.githubusercontent.com/u/14835483?v=4",
+      "profile": "https://zzhang.xyz",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "totomanov",
+      "name": "Anton Totomanov",
+      "avatar_url": "https://avatars.githubusercontent.com/u/63903313?v=4",
+      "profile": "https://github.com/totomanov",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,

@@ -2,7 +2,9 @@
 
 Forge can deploy smart contracts to a given network with the [`forge create`](../reference/forge/forge-create.md) command.
 
-Forge can deploy only one contract at a time.
+Forge CLI can deploy only one contract at a time.
+
+For deploying and verifying multiple smart contracts in one go, Forge's [Solidity scripting](../tutorials/solidity-scripting.md#deploying-our-contract) would be the more efficient approach.
 
 To deploy a contract, you must provide a RPC URL (env: `ETH_RPC_URL`) and the private key of the account that will deploy the contract.
 
@@ -57,7 +59,7 @@ Note that for Etherscan [`ETHERSCAN_API_KEY`](../reference/config/etherscan.md#e
 
 If you are verifying an already deployed contract, read on.
 
-You can verify a contract on Etherscan, Sourcify or Blockscout with the [`forge verify-contract`](../reference/forge/forge-verify-contract.md) command.
+You can verify a contract on Etherscan, Sourcify, oklink or Blockscout with the [`forge verify-contract`](../reference/forge/forge-verify-contract.md) command.
 
 You must provide:
 - the contract address

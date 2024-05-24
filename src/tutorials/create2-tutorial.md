@@ -2,11 +2,14 @@
 
 ### Introduction
 
-Enshrined into the EVM as part of the [Constantinople fork](https://ethereum.org/en/history/#constantinople) of 2019, `CREATE2` is an opcode that started it's journey as [EIP-1014](https://eips.ethereum.org/EIPS/eip-1014).
+Enshrined into the EVM as part of the [Constantinople fork](https://ethereum.org/en/history/#constantinople) of 2019, `CREATE2` is an opcode that started its journey as [EIP-1014](https://eips.ethereum.org/EIPS/eip-1014).
 `CREATE2` allows you to deploy smart contracts to deterministic addresses, based on parameters controlled by the deployer.
-As a result, it's often mentioned as enabling "counterfactual" deployments, where you can interact with an addresses that haven't been created yet because CREATE2 guarantees known code can be placed at that address.
+As a result, it's often mentioned as enabling "counterfactual" deployments, where you can interact with an addresses that haven't been created yet because `CREATE2` guarantees known code can be placed at that address.
 This is in contrast to the `CREATE` opcode, where the address of the deployed contract is a function of the deployer's nonce.
  With `CREATE2`, you can use the same deployer account to deploy contracts to the same address across multiple networks, even if the address has varying nonces.
+
+> ℹ️ **Note**
+>This guide is intended to help understand `CREATE2`. In most use cases, you won't need to write and use your own deployer, and can use an existing deterministic deployer. In forge scripts, using `new MyContract{salt: salt}()` will use the deterministic deployer at [0x4e59b44847b379578588920ca78fbf26c0b4956c](https://github.com/Arachnid/deterministic-deployment-proxy).
 
 In this tutorial, we will:
 
@@ -195,7 +198,7 @@ Initialize the following state variables and the `setUp()` function:
 Create a new function named `testDeterministicDeploy()` that:
 
 1. Deploys a new instance of the `Create2` contract.
-2. Deals out a 100 ETH to the a specific address that we will use to impersonate as the caller for all subsequent calls using the `prank` cheatcode.
+2. Deals out a 100 ETH to the specific address that we will use to impersonate as the caller for all subsequent calls using the `prank` cheatcode.
 3. Sets up the `salt` and `bytecode` params
 4. Uses the previously deployed `Create2` contract to deploy the `Counter` contract at a deterministic address.
 5. Checks if the contract was deployed at the correct address, by asserting that the computed address is equal to the deployed address.
@@ -219,5 +222,3 @@ Create a new function named `testDeterministicDeploy()` that:
 Save all your files, and run the test using `forge test --match-path test/Create2.t.sol -vvvv`.
 Your test should pass without any errors.
 
-> ℹ️ **Note**
->This guide is intended to help understand `CREATE2`. In most use cases, you won't need to write and use your own deployer, and can use an existing deterministic deployer. In forge scripts, using `new MyContract{salt: salt}()` will use the deterministic deployer at [0x4e59b44847b379578588920ca78fbf26c0b4956c](https://github.com/Arachnid/deterministic-deployment-proxy).

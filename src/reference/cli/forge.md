@@ -1,6 +1,6 @@
 # forge
 
-Build, test, fuzz, debug and deploy Solidity contracts.
+Build, test, fuzz, debug and deploy Solidity contracts
 
 ```bash
 $ forge --help
@@ -11,6 +11,7 @@ Commands:
   build              Build the project's smart contracts [aliases: b, compile]
   cache              Manage the Foundry cache
   clean              Remove the build artifacts and cache directories [aliases: cl]
+  clone              Clone a contract from Etherscan
   completions        Generate shell completions script [aliases: com]
   config             Display the current config [aliases: co]
   coverage           Generate coverage reports
@@ -28,12 +29,15 @@ Commands:
   install            Install one or multiple dependencies [aliases: i]
   remappings         Get the automatically inferred remappings for the project [aliases: re]
   remove             Remove one or multiple dependencies [aliases: rm]
-  script             Run a smart contract as a script, building transactions that can be sent onchain
+  script             Run a smart contract as a script, building transactions that can be sent
+                         onchain
   selectors          Function selector utilities [aliases: se]
   snapshot           Create a snapshot of each test's gas usage [aliases: s]
   test               Run the project's tests [aliases: t]
-  tree               Display a tree visualization of the project's dependency graph [aliases: tr]
+  tree               Display a tree visualization of the project's dependency graph [aliases:
+                         tr]
   update             Update one or multiple dependencies [aliases: u]
+  verify-bytecode    Verify the deployed bytecode against its source [aliases: vb]
   verify-check       Check verification status on Etherscan [aliases: vc]
   verify-contract    Verify smart contracts on Etherscan [aliases: v]
 
