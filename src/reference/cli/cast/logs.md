@@ -47,9 +47,11 @@ Ethereum options:
           [env: ETH_RPC_URL=]
 
       --flashbots
-          Use the Flashbots RPC URL with fast mode (https://rpc.flashbots.net/fast). This shares the
-          transaction privately with all registered builders.
-          https://docs.flashbots.net/flashbots-protect/quick-start#faster-transactions
+          Use the Flashbots RPC URL with fast mode (<https://rpc.flashbots.net/fast>).
+          
+          This shares the transaction privately with all registered builders.
+          
+          See: <https://docs.flashbots.net/flashbots-protect/quick-start#faster-transactions>
 
       --jwt-secret <JWT_SECRET>
           JWT Secret for the RPC endpoint.
@@ -134,7 +136,7 @@ Wallet options - hardware wallet:
   -t, --trezor
           Use a Trezor hardware wallet
 
-Wallet options - AWS KMS:
+Wallet options - remote:
       --aws
           Use AWS Key Management Service
 ```

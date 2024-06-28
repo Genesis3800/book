@@ -4,7 +4,7 @@ Build the project's smart contracts
 
 ```bash
 $ forge build --help
-Usage: forge build [OPTIONS]
+Usage: forge build [OPTIONS] [PATHS]...
 
 Options:
   -h, --help
@@ -17,13 +17,16 @@ Build options:
       --sizes
           Print compiled contract sizes
 
+      --no-cache
+          Disable the cache
+
       --skip <SKIP>...
           Skip building files whose names contain the given filter.
           
           `test` and `script` are aliases for `.t.sol` and `.s.sol`.
 
-      --no-cache
-          Disable the cache
+  [PATHS]...
+          Build source files from specified paths
 
 Cache options:
       --force
@@ -84,7 +87,7 @@ Compiler options:
           Example keys: evm.assembly, ewasm, ir, irOptimized, metadata
           
           For a full description, see
-          https://docs.soliditylang.org/en/v0.8.13/using-the-compiler.html#input-description
+          <https://docs.soliditylang.org/en/v0.8.13/using-the-compiler.html#input-description>
 
       --extra-output-files <SELECTOR>...
           Extra output to write to separate files.

@@ -13,6 +13,7 @@
 - [Working on an Existing Project](./projects/working-on-an-existing-project.md)
 - [Clone a Verified Contract on Chain](./projects/clone-a-verified-contract.md)
 - [Dependencies](./projects/dependencies.md)
+- [Soldeer](./projects/soldeer.md)
 - [Project Layout](./projects/project-layout.md)
 
 # Forge Overview
@@ -60,6 +61,7 @@
 - [Shell Autocompletion](./config/shell-autocompletion.md)
 - [Static Analyzers](./config/static-analyzers.md)
 - [Integrating with Hardhat](./config/hardhat.md)
+- [Vyper support](./config/vyper.md)
 
 # Tutorials
 
@@ -111,6 +113,12 @@
         - [`forge selectors upload`](./reference/cli/forge/selectors/upload.md)
         - [`forge selectors list`](./reference/cli/forge/selectors/list.md)
       - [`forge snapshot`](./reference/cli/forge/snapshot.md)
+      - [`forge soldeer`](./reference/cli/forge/soldeer.md)
+        - [`forge soldeer install`](./reference/cli/forge/soldeer/install.md)
+        - [`forge soldeer update`](./reference/cli/forge/soldeer/update.md)
+        - [`forge soldeer login`](./reference/cli/forge/soldeer/login.md)
+        - [`forge soldeer push`](./reference/cli/forge/soldeer/push.md)
+        - [`forge soldeer version-dry-run`](./reference/cli/forge/soldeer/version-dry-run.md)
       - [`forge test`](./reference/cli/forge/test.md)
       - [`forge tree`](./reference/cli/forge/tree.md)
       - [`forge update`](./reference/cli/forge/update.md)
@@ -162,6 +170,7 @@
       - [`cast hash-zero`](./reference/cli/cast/hash-zero.md)
       - [`cast implementation`](./reference/cli/cast/implementation.md)
       - [`cast index`](./reference/cli/cast/index.md)
+      - [`cast index-erc7201`](./reference/cli/cast/index-erc7201.md)
       - [`cast interface`](./reference/cli/cast/interface.md)
       - [`cast keccak`](./reference/cli/cast/keccak.md)
       - [`cast logs`](./reference/cli/cast/logs.md)
@@ -215,7 +224,7 @@
         - [`cast wallet verify`](./reference/cli/cast/wallet/verify.md)
         - [`cast wallet import`](./reference/cli/cast/wallet/import.md)
         - [`cast wallet list`](./reference/cli/cast/wallet/list.md)
-        - [`cast wallet derive-private-key`](./reference/cli/cast/wallet/derive-private-key.md)
+        - [`cast wallet private-key`](./reference/cli/cast/wallet/private-key.md)
         - [`cast wallet decrypt-keystore`](./reference/cli/cast/wallet/decrypt-keystore.md)
     - [`anvil`](./reference/cli/anvil.md)
       - [`anvil completions`](./reference/cli/anvil/completions.md)
@@ -538,4 +547,3 @@
   - [DSTest Reference](./reference/ds-test.md)
 - [Miscellaneous](./misc/README.md)
   - [Struct encoding](./misc/struct-encoding.md)
-  - [Precompile Registry](./misc/precompile-registry.md)

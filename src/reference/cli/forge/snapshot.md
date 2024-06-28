@@ -74,6 +74,9 @@ Test options:
       --fuzz-input-file <FUZZ_INPUT_FILE>
           File to rerun fuzz failures from
 
+      --max-threads <MAX_THREADS>
+          Max concurrent threads to use. Default value is the number of available CPUs
+
 Display options:
   -j, --json
           Output test results in JSON format
@@ -180,13 +183,13 @@ Fork config:
           default value: 330
           
           See also --fork-url and
-          https://docs.alchemy.com/reference/compute-units#what-are-cups-compute-units-per-second
+          <https://docs.alchemy.com/reference/compute-units#what-are-cups-compute-units-per-second>
 
       --no-rpc-rate-limit
           Disables rate limiting for this node's provider.
           
           See also --fork-url and
-          https://docs.alchemy.com/reference/compute-units#what-are-cups-compute-units-per-second
+          <https://docs.alchemy.com/reference/compute-units#what-are-cups-compute-units-per-second>
           
           [aliases: no-rate-limit]
 
@@ -256,6 +259,11 @@ Build options:
       --no-cache
           Disable the cache
 
+      --skip <SKIP>...
+          Skip building files whose names contain the given filter.
+          
+          `test` and `script` are aliases for `.t.sol` and `.s.sol`.
+
 Linker options:
       --libraries <LIBRARIES>
           Set pre-linked libraries
@@ -311,7 +319,7 @@ Compiler options:
           Example keys: evm.assembly, ewasm, ir, irOptimized, metadata
           
           For a full description, see
-          https://docs.soliditylang.org/en/v0.8.13/using-the-compiler.html#input-description
+          <https://docs.soliditylang.org/en/v0.8.13/using-the-compiler.html#input-description>
 
       --extra-output-files <SELECTOR>...
           Extra output to write to separate files.
@@ -390,6 +398,9 @@ Watch options:
           suffix may be more convenient.
           
           When using --poll mode, you'll want a larger duration, or risk overloading disk I/O.
+
+      --show-progress
+          Show test execution progress
 
       --asc
           Sort results by gas used (ascending)

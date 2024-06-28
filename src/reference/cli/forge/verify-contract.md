@@ -4,13 +4,13 @@ Verify smart contracts on Etherscan
 
 ```bash
 $ forge verify-contract --help
-Usage: forge verify-contract [OPTIONS] <ADDRESS> <CONTRACT>
+Usage: forge verify-contract [OPTIONS] <ADDRESS> [CONTRACT]
 
 Arguments:
   <ADDRESS>
           The address of the contract to verify
 
-  <CONTRACT>
+  [CONTRACT]
           The contract identifier in the form `<path>:<contractname>`
 
 Options:
@@ -80,9 +80,11 @@ Options:
           [env: ETH_RPC_URL=]
 
       --flashbots
-          Use the Flashbots RPC URL with fast mode (https://rpc.flashbots.net/fast). This shares the
-          transaction privately with all registered builders.
-          https://docs.flashbots.net/flashbots-protect/quick-start#faster-transactions
+          Use the Flashbots RPC URL with fast mode (<https://rpc.flashbots.net/fast>).
+          
+          This shares the transaction privately with all registered builders.
+          
+          See: <https://docs.flashbots.net/flashbots-protect/quick-start#faster-transactions>
 
       --jwt-secret <JWT_SECRET>
           JWT Secret for the RPC endpoint.

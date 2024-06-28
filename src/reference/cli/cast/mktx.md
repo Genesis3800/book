@@ -23,9 +23,6 @@ Arguments:
           The arguments of the function to call
 
 Options:
-      --resend
-          Reuse the latest nonce for the sender account
-
   -h, --help
           Print help (see a summary with '-h')
 
@@ -59,6 +56,14 @@ Transaction options:
           
           This is automatically enabled for common networks without EIP1559.
 
+      --blob
+          Send a EIP-4844 blob transaction
+
+      --blob-gas-price <BLOB_PRICE>
+          Gas price for EIP-4844 blob transaction
+          
+          [env: ETH_BLOB_GAS_PRICE=]
+
 Ethereum options:
   -r, --rpc-url <URL>
           The RPC endpoint
@@ -66,9 +71,11 @@ Ethereum options:
           [env: ETH_RPC_URL=]
 
       --flashbots
-          Use the Flashbots RPC URL with fast mode (https://rpc.flashbots.net/fast). This shares the
-          transaction privately with all registered builders.
-          https://docs.flashbots.net/flashbots-protect/quick-start#faster-transactions
+          Use the Flashbots RPC URL with fast mode (<https://rpc.flashbots.net/fast>).
+          
+          This shares the transaction privately with all registered builders.
+          
+          See: <https://docs.flashbots.net/flashbots-protect/quick-start#faster-transactions>
 
       --jwt-secret <JWT_SECRET>
           JWT Secret for the RPC endpoint.
@@ -153,7 +160,7 @@ Wallet options - hardware wallet:
   -t, --trezor
           Use a Trezor hardware wallet
 
-Wallet options - AWS KMS:
+Wallet options - remote:
       --aws
           Use AWS Key Management Service
 ```

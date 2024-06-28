@@ -8,8 +8,8 @@ No files changed, compilation skipped
 Ran 2 tests for test/Counter.t.sol:CounterTest
 [PASS] testFuzz_SetNumber(uint256) (runs: 256, μ: 31154, ~: 31310)
 [PASS] test_Increment() (gas: 31325)
-Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 10.53ms (10.24ms CPU time)
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 8.78ms (8.36ms CPU time)
 
-Ran 1 test suite in 15.22ms (10.53ms CPU time): 2 tests passed, 0 failed, 0 skipped (2 total tests)
+Ran 1 test suite in 9.95ms (8.78ms CPU time): 2 tests passed, 0 failed, 0 skipped (2 total tests)
 // ANCHOR_END: output
 // ANCHOR_END: all
